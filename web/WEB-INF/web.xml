@@ -5,12 +5,20 @@
         <servlet-class>services.Recommendation</servlet-class>
         <init-param>
             <param-name>userid</param-name>
-            <param-value>20100100059</param-value>
+            <param-value>20100100001</param-value>
         </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>UserBooks</servlet-name>
+        <servlet-class>services.UserBooks</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Recommendation</servlet-name>
         <url-pattern>/Recommendation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserBooks</servlet-name>
+        <url-pattern>/UserBooks</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -38,16 +38,6 @@ public class Recommendation extends HttpServlet {
         
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Recommendation</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Recommendation at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
             out.write(bookRecommendation.toJson());
         } finally {
             out.close();
