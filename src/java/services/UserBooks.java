@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 import recommendation.UserDataSource;
+import util.JSONPRequestProccessor;
 
 /**
  *
@@ -33,21 +34,17 @@ public class UserBooks extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, JSONException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/xscript;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+
         String userid = request.getParameter("userid");
         UserDataSource userSource = new UserDataSource(userid);
-  
-        JSONObject json  = new JSONObject();
+
+        JSONObject json = new JSONObject();
         json.accumulate("userid", userid);
         json.accumulate("books", userSource.getInfo().getBorrowList());
-        
-        try {
-            json.write(out);
-        } finally {            
-            out.close();
-        }
+
+        JSONPRequestProccessor.proccessJSONPRequest(request, response, json.toString());
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
