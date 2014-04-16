@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 import object.User;
 import org.json.JSONException;
 import org.json.JSONObject;
+import util.JSONPRequestProccessor;
 
 /**
  *
@@ -75,7 +76,8 @@ public class UserInfo extends HttpServlet {
 
             JSONObject json = new JSONObject();
             json.accumulate("userinfo", users);
-            json.write(out);
+          
+            JSONPRequestProccessor.proccessJSONPRequest(request, response, json.toString());
             
             rs.close();
             stmt.close();
